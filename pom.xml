@@ -16,7 +16,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
@@ -42,6 +42,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jooq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 
 	</dependencies>
@@ -85,8 +89,8 @@
 							<inputSchema>public</inputSchema>
 						</database>
 						<target>
-							<packageName>com.alekseev.KaffkaTestApp</packageName>
-							<directory>gensrc/main/java/</directory>
+							<packageName>com.alekseev.kaffka.jooq</packageName>
+							<directory>gensrc/main/java</directory>
 						</target>
 					</generator>
 				</configuration>
@@ -102,7 +106,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>gensrc/main/java/</source>
+								<source>gensrc/main/java</source>
 							</sources>
 						</configuration>
 					</execution>

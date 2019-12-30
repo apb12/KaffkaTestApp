@@ -1,6 +1,6 @@
 package com.alekseev.kaffka.config;
 
-import com.alekseev.kaffka.dto.Empoyer;
+import com.alekseev.kaffka.dto.Employer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import java.util.Map;
 public class ProducerConf {
 
     @Bean
-    public ProducerFactory<String,Empoyer>empoyerProducerFactory(){
+    public ProducerFactory<String, Employer>employerProducerFactory(){
         Map<String,Object>configProps=new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -25,7 +25,7 @@ public class ProducerConf {
         return new DefaultKafkaProducerFactory<>(configProps);
     }
     @Bean
-    public KafkaTemplate<String,Empoyer>kafkaTemplate(){
-        return new KafkaTemplate<>(empoyerProducerFactory());
+    public KafkaTemplate<String, Employer>kafkaTemplate(){
+        return new KafkaTemplate<>(employerProducerFactory());
     }
 }
